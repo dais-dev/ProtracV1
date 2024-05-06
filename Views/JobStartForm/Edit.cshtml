@@ -1,0 +1,99 @@
+@model Protrac1.Models.JobStartForm
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>JobStartForm</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ProjectId" />
+            <div class="form-group">
+                <label asp-for="SerialNumber" class="control-label"></label>
+                <input asp-for="SerialNumber" class="form-control" />
+                <span asp-validation-for="SerialNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProjectTitle" class="control-label"></label>
+                <input asp-for="ProjectTitle" class="form-control" />
+                <span asp-validation-for="ProjectTitle" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProjectDetail" class="control-label"></label>
+                <input asp-for="ProjectDetail" class="form-control" />
+                <span asp-validation-for="ProjectDetail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ClientName" class="control-label"></label>
+                <input asp-for="ClientName" class="form-control" />
+                <span asp-validation-for="ClientName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProjectManagerName" class="control-label"></label>
+                <input asp-for="ProjectManagerName" class="form-control" />
+                <span asp-validation-for="ProjectManagerName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TypeofJob" class="control-label"></label>
+                <input asp-for="TypeofJob" class="form-control" />
+                <span asp-validation-for="TypeofJob" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StartDate" class="control-label"></label>
+                <input asp-for="StartDate" class="form-control" />
+                <span asp-validation-for="StartDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EndDate" class="control-label"></label>
+                <input asp-for="EndDate" class="form-control" />
+                <span asp-validation-for="EndDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Sector" class="control-label"></label>
+                <input asp-for="Sector" class="form-control" />
+                <span asp-validation-for="Sector" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Office" class="control-label"></label>
+                <input asp-for="Office" class="form-control" />
+                <span asp-validation-for="Office" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Region" class="control-label"></label>
+                <input asp-for="Region" class="form-control" />
+                <span asp-validation-for="Region" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SPMName" class="control-label"></label>
+                <input asp-for="SPMName" class="form-control" />
+                <span asp-validation-for="SPMName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EstimatedProjectCost" class="control-label"></label>
+                <input asp-for="EstimatedProjectCost" class="form-control" />
+                <span asp-validation-for="EstimatedProjectCost" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Duration" class="control-label"></label>
+                <input asp-for="Duration" class="form-control" />
+                <span asp-validation-for="Duration" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

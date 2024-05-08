@@ -42,6 +42,30 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Shubhangi/Protrac/Protract Version 1/ProtracV1/Views/InputRegister/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5wdXRSZWdpc3RlclxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shubhangi/Protrac/Protract Version 1/ProtracV1/Views/InputRegister/CreateInputRegister.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5wdXRSZWdpc3RlclxDcmVhdGVJbnB1dFJlZ2lzdGVyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shubhangi/Protrac/Protract Version 1/ProtracV1/Views/InputRegister/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5wdXRSZWdpc3RlclxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shubhangi/Protrac/Protract Version 1/ProtracV1/Views/InputRegister/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5wdXRSZWdpc3RlclxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shubhangi/Protrac/Protract Version 1/ProtracV1/Views/InputRegister/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5wdXRSZWdpc3RlclxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shubhangi/Protrac/Protract Version 1/ProtracV1/Views/InputRegister/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5wdXRSZWdpc3RlclxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Shubhangi/Protrac/Protract Version 1/ProtracV1/Views/JobStartForm/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSm9iU3RhcnRGb3JtXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -64,6 +88,14 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/Shubhangi/Protrac/Protract Version 1/ProtracV1/Views/JobStartForm/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSm9iU3RhcnRGb3JtXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shubhangi/Protrac/Protract Version 1/ProtracV1/Views/JobStartForm/ViewForms.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSm9iU3RhcnRGb3JtXFZpZXdGb3Jtcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shubhangi/Protrac/Protract Version 1/ProtracV1/Views/JobStartForm/ViewProjects.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSm9iU3RhcnRGb3JtXFZpZXdQcm9qZWN0cy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Shubhangi/Protrac/Protract Version 1/ProtracV1/Views/Shared/Error.cshtml]

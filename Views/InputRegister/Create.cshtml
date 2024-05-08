@@ -1,0 +1,103 @@
+@model Protrac1.Models.InputRegister
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>InputRegister</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="SerialNumber" class="control-label"></label>
+                <input asp-for="SerialNumber" class="form-control" />
+                <span asp-validation-for="SerialNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProjectTitle" class="control-label"></label>
+                <input asp-for="ProjectTitle" class="form-control" />
+                <span asp-validation-for="ProjectTitle" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DataReceived" class="control-label"></label>
+                <input asp-for="DataReceived" class="form-control" />
+                <span asp-validation-for="DataReceived" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ReceivedDate" class="control-label"></label>
+                <input asp-for="ReceivedDate" class="form-control" />
+                <span asp-validation-for="ReceivedDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ReceivedFrom" class="control-label"></label>
+                <input asp-for="ReceivedFrom" class="form-control" />
+                <span asp-validation-for="ReceivedFrom" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProjectManagerName" class="control-label"></label>
+                <input asp-for="ProjectManagerName" class="form-control" />
+                <span asp-validation-for="ProjectManagerName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FilesFormat" class="control-label"></label>
+                <input asp-for="FilesFormat" class="form-control" />
+                <span asp-validation-for="FilesFormat" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NumberofFiles" class="control-label"></label>
+                <input asp-for="NumberofFiles" class="form-control" />
+                <span asp-validation-for="NumberofFiles" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="FitforPurpose" /> @Html.DisplayNameFor(model => model.FitforPurpose)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Check" /> @Html.DisplayNameFor(model => model.Check)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="CheckedBy" class="control-label"></label>
+                <input asp-for="CheckedBy" class="form-control" />
+                <span asp-validation-for="CheckedBy" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CheckedDate" class="control-label"></label>
+                <input asp-for="CheckedDate" class="form-control" />
+                <span asp-validation-for="CheckedDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Custodian" class="control-label"></label>
+                <input asp-for="Custodian" class="form-control" />
+                <span asp-validation-for="Custodian" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StoragePath" class="control-label"></label>
+                <input asp-for="StoragePath" class="form-control" />
+                <span asp-validation-for="StoragePath" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Remarks" class="control-label"></label>
+                <input asp-for="Remarks" class="form-control" />
+                <span asp-validation-for="Remarks" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

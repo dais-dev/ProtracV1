@@ -1,0 +1,119 @@
+@model IEnumerable<Protrac1.Models.InputRegister>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.SerialNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProjectTitle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataReceived)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReceivedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReceivedFrom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProjectManagerName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FilesFormat)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumberofFiles)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FitforPurpose)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Check)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CheckedBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CheckedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Custodian)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StoragePath)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Remarks)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SerialNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProjectTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataReceived)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReceivedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReceivedFrom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProjectManagerName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FilesFormat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumberofFiles)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FitforPurpose)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Check)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CheckedBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CheckedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Custodian)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StoragePath)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Remarks)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ProjectId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ProjectId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ProjectId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

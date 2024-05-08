@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Protrac1.Models;
 using ProtracV1.Models;
@@ -12,6 +12,8 @@ public class ApplicationDbContext : IdentityDbContext
     {
     }
     public DbSet<JobStartForm> JobStartForm { get; set; } = default!;
+
+public DbSet<Protrac1.Models.InputRegister> InputRegister { get; set; } = default!;
 
 
 

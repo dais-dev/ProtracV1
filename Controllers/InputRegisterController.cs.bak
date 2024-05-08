@@ -10,38 +10,22 @@ using ProtracV1.Data;
 
 namespace ProtracV1.Controllers
 {
-    public class JobStartFormController : Controller
+    public class InputRegisterController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public JobStartFormController(ApplicationDbContext context)
+        public InputRegisterController(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        // GET: JobStartForm
+        // GET: InputRegister
         public async Task<IActionResult> Index()
         {
-            return View(await _context.JobStartForm.ToListAsync());
+            return View(await _context.InputRegister.ToListAsync());
         }
 
-         // Added methods for Asset App
-        public IActionResult CreateJobStartForm()
-        {
-            return View();
-        }
-        public async Task<IActionResult> ViewProjects()
-        {
-            return View(await _context.JobStartForm.ToListAsync());
-        }
-        public IActionResult ViewForms()
-        {
-            return View();
-        }
-
-        /// end Added methods
-
-        // GET: JobStartForm/Details/5
+        // GET: InputRegister/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -49,39 +33,39 @@ namespace ProtracV1.Controllers
                 return NotFound();
             }
 
-            var jobStartForm = await _context.JobStartForm
+            var inputRegister = await _context.InputRegister
                 .FirstOrDefaultAsync(m => m.ProjectId == id);
-            if (jobStartForm == null)
+            if (inputRegister == null)
             {
                 return NotFound();
             }
 
-            return View(jobStartForm);
+            return View(inputRegister);
         }
 
-        // GET: JobStartForm/Create
+        // GET: InputRegister/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: JobStartForm/Create
+        // POST: InputRegister/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ProjectId,SerialNumber,ProjectTitle,ProjectDetail,ClientName,ProjectManagerName,TypeofJob,StartDate,EndDate,Sector,Office,Region,SPMName,EstimatedProjectCost,Duration")] JobStartForm jobStartForm)
+        public async Task<IActionResult> Create([Bind("ProjectId,SerialNumber,ProjectTitle,DataReceived,ReceivedDate,ReceivedFrom,ProjectManagerName,FilesFormat,NumberofFiles,FitforPurpose,Check,CheckedBy,CheckedDate,Custodian,StoragePath,Remarks")] InputRegister inputRegister)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(jobStartForm);
+                _context.Add(inputRegister);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(jobStartForm);
+            return View(inputRegister);
         }
 
-        // GET: JobStartForm/Edit/5
+        // GET: InputRegister/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -89,22 +73,22 @@ namespace ProtracV1.Controllers
                 return NotFound();
             }
 
-            var jobStartForm = await _context.JobStartForm.FindAsync(id);
-            if (jobStartForm == null)
+            var inputRegister = await _context.InputRegister.FindAsync(id);
+            if (inputRegister == null)
             {
                 return NotFound();
             }
-            return View(jobStartForm);
+            return View(inputRegister);
         }
 
-        // POST: JobStartForm/Edit/5
+        // POST: InputRegister/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ProjectId,SerialNumber,ProjectTitle,ProjectDetail,ClientName,ProjectManagerName,TypeofJob,StartDate,EndDate,Sector,Office,Region,SPMName,EstimatedProjectCost,Duration")] JobStartForm jobStartForm)
+        public async Task<IActionResult> Edit(int id, [Bind("ProjectId,SerialNumber,ProjectTitle,DataReceived,ReceivedDate,ReceivedFrom,ProjectManagerName,FilesFormat,NumberofFiles,FitforPurpose,Check,CheckedBy,CheckedDate,Custodian,StoragePath,Remarks")] InputRegister inputRegister)
         {
-            if (id != jobStartForm.ProjectId)
+            if (id != inputRegister.ProjectId)
             {
                 return NotFound();
             }
@@ -113,12 +97,12 @@ namespace ProtracV1.Controllers
             {
                 try
                 {
-                    _context.Update(jobStartForm);
+                    _context.Update(inputRegister);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!JobStartFormExists(jobStartForm.ProjectId))
+                    if (!InputRegisterExists(inputRegister.ProjectId))
                     {
                         return NotFound();
                     }
@@ -129,10 +113,10 @@ namespace ProtracV1.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(jobStartForm);
+            return View(inputRegister);
         }
 
-        // GET: JobStartForm/Delete/5
+        // GET: InputRegister/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -140,34 +124,34 @@ namespace ProtracV1.Controllers
                 return NotFound();
             }
 
-            var jobStartForm = await _context.JobStartForm
+            var inputRegister = await _context.InputRegister
                 .FirstOrDefaultAsync(m => m.ProjectId == id);
-            if (jobStartForm == null)
+            if (inputRegister == null)
             {
                 return NotFound();
             }
 
-            return View(jobStartForm);
+            return View(inputRegister);
         }
 
-        // POST: JobStartForm/Delete/5
+        // POST: InputRegister/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var jobStartForm = await _context.JobStartForm.FindAsync(id);
-            if (jobStartForm != null)
+            var inputRegister = await _context.InputRegister.FindAsync(id);
+            if (inputRegister != null)
             {
-                _context.JobStartForm.Remove(jobStartForm);
+                _context.InputRegister.Remove(inputRegister);
             }
 
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool JobStartFormExists(int id)
+        private bool InputRegisterExists(int id)
         {
-            return _context.JobStartForm.Any(e => e.ProjectId == id);
+            return _context.InputRegister.Any(e => e.ProjectId == id);
         }
     }
 }

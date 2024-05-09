@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Protrac1.Models;
 using ProtracV1.Data;
+using SQLitePCL;
 
 
 namespace ProtracV1.Controllers
@@ -28,12 +29,27 @@ namespace ProtracV1.Controllers
         }
 
 // Added methods for Forms App
-        public IActionResult CreateInputRegister()
+        public async Task<IActionResult> CreateInputRegister(int? id)
         {
-            return View();
+            if (id == null)
+            {
+                return NotFound();
+            }
+            var inputRegister = await _context.InputRegister.FindAsync(id);
+            if (inputRegister != null)
+            {
+                return NotFound();
+            }
+
+           var model = new MyViewModel
+            {
+                Id = id.Value,
+                Name = "MyName",
+            };
+            return View(model);
         }
 
-
+/// end added methods
 
 
         // GET: InputRegister/Details/5
@@ -54,9 +70,16 @@ namespace ProtracV1.Controllers
             return View(inputRegister);
         }
 
+
+        // chnged to get (int id)
         // GET: InputRegister/Create
-        public IActionResult Create()
+        public IActionResult Create(int id)
         {
+           // if (id == null)
+            //{
+            //    return NotFound();
+            // }
+            // int _prid = id;
             return View();
         }
 
@@ -65,13 +88,17 @@ namespace ProtracV1.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ProjectId,SerialNumber,ProjectTitle,DataReceived,ReceivedDate,ReceivedFrom,ProjectManagerName,FilesFormat,NumberofFiles,FitforPurpose,Check,CheckedBy,CheckedDate,Custodian,StoragePath,Remarks")] InputRegister inputRegister)
+        public async Task<IActionResult> Create(int id, [Bind("ProjectId,SerialNumber,ProjectTitle,DataReceived,ReceivedDate,ReceivedFrom,ProjectManagerName,FilesFormat,NumberofFiles,FitforPurpose,Check,CheckedBy,CheckedDate,Custodian,StoragePath,Remarks")] InputRegister inputRegister)
         {
             if (ModelState.IsValid)
             {
                 // Added for takig common fields from JobStartForm
-                 inputRegister.ProjectManagerName = _context.JobStartForm.First().ProjectManagerName;
-                 inputRegister.SerialNumber = _context.JobStartForm.First().SerialNumber;
+
+              //  var JobStart = _context.JobStartForm.FirstOrDefault();
+                
+               //  inputRegister.ProjectManagerName = _context.JobStartForm.First().ProjectManagerName;
+                 // inputRegister.SerialNumber = _context.JobStartForm.First().SerialNumber;
+                inputRegister.SerialNumber = id;
                 //
 
                 _context.Add(inputRegister);

@@ -34,9 +34,20 @@ namespace ProtracV1.Controllers
         {
             return View(await _context.JobStartForm.ToListAsync());
         }
-        public IActionResult ViewForms()
+        public async Task<IActionResult> ViewForms(int? id)
         {
-            return View();
+              if (id == null)
+            {
+                return NotFound();
+            }
+
+            var jobStartForm = await _context.JobStartForm.FindAsync(id);
+            if (jobStartForm == null)
+            {
+                return NotFound();
+            }
+            return View(jobStartForm);
+
         }
 
         /// end Added methods

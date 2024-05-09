@@ -1,6 +1,9 @@
+
+
 @{
     ViewData["Title"] = "Create Input Register";
 }
+
 
 <h2> Create Input Register </h2>
 <p> </p>
@@ -8,10 +11,10 @@
 <hr style="width:50% height:8px">
 
 <p>
-    <a asp-action="Create" style="font-size:1.3vw" > Create Input Register </a>
+    <a asp-controller="InputRegister" asp-action="Create" asp-route-id="@Model.Id" style="font-size:1.3vw" > Create Input Register </a>
 </p>
 <p> </p>
 <p> </p>
 <p>
     <a asp-action="Create" style="font-size:1.3vw"> Create Iput Register using Excel </a>
-</p>
+</p>    using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.View;

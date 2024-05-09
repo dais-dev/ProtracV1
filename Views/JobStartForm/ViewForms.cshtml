@@ -1,4 +1,4 @@
-@model IEnumerable<Protrac1.Models.JobStartForm>
+@model Protrac1.Models.JobStartForm
 
 
 @{
@@ -8,5 +8,6 @@
 <h1>Index Create Input Register</h1>
 
 <p>
-    <a asp-controller="InputRegister" asp-action="CreateInputRegister">Create New</a>
+    <a asp-controller="InputRegister" asp-action="CreateInputRegister" asp-route-id="@Model.ProjectId">Create New Input Register form</a>
+    <a asp-controller="InputRegister" asp-action="CreateInputRegister" asp-route-id="@Model.ProjectId">Create New Check and Review form</a>
 </p>

@@ -1,0 +1,322 @@
+DAISversion1 App
+
+C:\Users\Shubhangi\DAISversion1\
+
+
+*1* create app
+dotnet new mvc --auth Individual -uld -o ProtracV1
+
+*this will create project folder named ProtracV1
+
+*2* open Visual Studio code with app ** may need to exit and open VS code a couple of times
+code -r ProtracV1
+
+*3* click trust the authours 
+** 
+
+*4* trust HTTPS development certificate 
+dotnet dev-certs https --trust
+
+*5* run without debugger in VS studio
+
+
+*6* VS Code:  Select View -> Command Pallete -> .NET Generate Assets for Build and Debug
+** check that .vscode directory, launch.json and task.json created
+
+
+
+ *** create /model/Asset.cs, User.cs
+
+*y* change to sqlite in Program.cs
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseSqlite(builder.Configuration.GetConnectionString("ApplicationDbContext") ?? throw new InvalidOperationException("Connection string 'ProtracAppContext' not found.")));
+
+
+
+*7* install tools
+
+cd projdir
+
+dotnet tool uninstall --global dotnet-aspnet-codegenerator
+dotnet tool install --global dotnet-aspnet-codegenerator
+dotnet tool uninstall --global dotnet-ef
+dotnet tool install --global dotnet-ef
+dotnet add package Microsoft.EntityFrameworkCore.Design
+dotnet add package Microsoft.EntityFrameworkCore.SQLite
+dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
+dotnet add package Microsoft.EntityFrameworkCore.SqlServer
+dotnet add package Microsoft.EntityFrameworkCore.Tools
+
+
+*8a* create controllercode
+dotnet aspnet-codegenerator controller -name JobStartFormController -m JobStartForm  --relativeFolderPath Controllers --useDefaultLayout --referenceScriptLibraries --databaseProvider sqlite -dc ApplicationDbContext
+
+**** Restart machine if file lock error
+
+ * *** check if CRUD files and controller is created
+
+
+*8* create identity code
+
+dotnet aspnet-codegenerator identity --useDefaultUI --databaseProvider sqlite -dc ApplicationDbContext
+
+
+*** check Identitydb in Program.cs exists
+
+builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+    .AddEntityFrameworkStores<ApplicationDbContext>();
+
+UseAuthentication();
+
+
+
+******* check *****8
+
+** add DbSet <JobstartForm> in ApplicationDbContext.cs
+
+** appsettigs.json add ApplicationDbContext connection string
+*no*  dotnet ef migrations add InitialCreate 
+*no*dotnet ef database update
+*********
+
+*9*
+update appsettings.json to add connection string for ApplicationDbContext and modify  Default and ProtracV1Identity
+
+
+"ConnectionStrings": {
+    "DefaultConnection": "Data Source= aspnet-DAISv1-3166ca07-652e-40e9-b409-547c4335971f;Trusted_Connection=True;MultipleActiveResultSets=true",
+    "ProtracV1IdentityDbContextConnection": "Data Source=aspnet-DAISv1-3166ca07-652e-40e9-b409-547c4335971f",
+    "ApplicationDbContext": "Data Source=aspnet-DAISv1-3166ca07-652e-40e9-b409-547c4335971f"
+  },
+
+
+*10**
+add SeedData.cs in Models folder
+
+and call it in Program.cs
+** after var app = builder.Build(); **
+
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+
+    SeedData.Initialize(services);
+}
+
+
+
+*****add in ApplicationDbContext
+public DbSet<JobStartForm> JobStartForm { get; set; } = default!;
+
+
+*** not added **    public DbSet<User> User { get; set; } = default!;
+
+
+
+
+*11*
+dotnet ef migrations add CreateIdentitySchemav1 --context ApplicationDbContext
+dotnet ef database update --context ApplicationDbContext
+
+
+**12*
+*** remove pending migrations one by one, if any
+dotnet ef migrations list --context ApplicationDbContext 
+dotnet ef migrations remove --context ApplicationDbContext 
+************
+
+*13* 
+* add nav bar list in _Layout.cshtml
+ * .cshtml for menu in Views folder
+* actions in AssetController.cs
+
+*14* 
+* run thro VS studio. without debugger
+
+* 15 cmd line build**
+dotnet buid
+dotnet publish
+
+* 16 **
+cd bin\Release\net8.0\publish
+
+* check *db file 
+* if null
+copy aspnet-DAISv1-3166ca07-652e-40e9-b409-547c4335971f.db .\bin\Release\net8.0\publish\
+
+
+* run from cmd line
+dotnet DAISv1.dll 
+
+
+----------------------------------
+
+**21** add 
+Input_Register.cs model
+
+
+**22***run scaffold for controller code
+dotnet aspnet-codegenerator controller -name InputRegisterController -m InputRegister  --relativeFolderPath Controllers --useDefaultLayout --referenceScriptLibraries --databaseProvider sqlite -dc ApplicationDbContext
+
+**23****change _Layout.cshtml
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="InputRegister" asp-action="CreateInputRegister"> Create Input Register </a>
+                        </li>
+
+
+**24****change InputREgister controller to add CreateInputRegister method
+  public IActionResult CreateInputRegister()
+        {
+            return View();
+        }
+
+
+***255**** create CreateInputRegister.cshtml file in Views.
+
+
+*26* 
+dotnet ef migrations add InitialCreate --context ApplicationDbContext
+**27** 
+dotnet ef database update --context ApplicationDbContext
+
+-----
+
+* add 
+public DbSet<InputRegister> InputRegister { get; set; } = default!
+
+
+
+
+
+
+
+
+
+
+------
+*31 *
+_Layout.cshtml
+<li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="JobStartForm" asp-action="ViewProjects"> View Projects </a>
+                        </li>
+
+
+
+
+*32*
+JobStartFormController.cs  controller
+
+public async Task<IActionResult> ViewProjects()
+        {
+            return View(await _context.JobStartForm.ToListAsync());
+        }
+
+
+*33*
+ViewProjects.cshtml view
+@model IEnumerable<Protrac1.Models.JobStartForm>
+..
+..
+@foreach (var item in Model) {
+...
+
+
+             <a asp-action="ViewForms" asp-route-id="@item.ProjectId">Forms</a>
+
+
+*34*
+JobStartForm.cs  controller 
+
+public async Task<IActionResult> ViewForms(int? id)
+        {
+              if (id == null)
+            {
+                return NotFound();
+            }
+
+	     var jobStartForm = await _context.JobStartForm.FindAsync(id);
+            if (jobStartForm == null)
+            {
+                return NotFound();
+            }
+            return View(jobStartForm);
+
+        }
+
+
+
+*34*
+ViewForms.cshtml View
+
+@model Protrac1.Models.JobStartForm
+
+<p>
+    <a asp-controller="InputRegister" asp-action="CreateInputRegister" asp-route-id="@Model.ProjectId">Create New</a>
+</p>
+
+###Create
+
+
+*35*
+InputRegisterController.cs  controller
+
+public IActionResult CreateInputRegister(int id)
+        {
+            return View();  id
+        }
+
+
+#** new one or passing id to View
+  public async Task<IActionResult> CreateInputRegister(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+           var model = new MyViewModel
+            {
+                Id = id.Value,
+                Name = "MyName",
+            };
+            return View(model);
+        }
+
+
+*36* 
+CreateInputRegister.cshtml View
+
+<p>
+    
+<a asp-controller="InputRegister" asp-action="Create" asp-route-id="@Model.Id" style="font-size:1.3vw" > Create Input Register </a>
+
+</p>
+
+
+*37*
+Create
+InputRegisterController.cs  controller
+
+// GET: InputRegister/Create
+        public IActionResult Create()   *** change ** Create(int id)
+        {
+            return View();         
+        }
+
+*388 C
+Create.cshtml 
+
+get input fields from Form
+
+
+*37*
+Create
+InputRegisterController.cs  controller
+// POST: InputRegister/Create
+
+public async Task<IActionResult> Create([Bind("ProjectId,SerialNumber,ProjectTitle,DataReceived,ReceivedDate,ReceivedFrom,ProjectManagerName,FilesFormat,NumberofFiles,FitforPurpose,Check,CheckedBy,CheckedDate,Custodian,StoragePath,Remarks")] InputRegister inputRegister)
+
+*** change ** Create(int id, [Bind ...
+
+   **Add**      inputRegister.SerialNumber = id;
+
+

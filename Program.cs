@@ -16,12 +16,22 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+////// changed to false for noemail confirmation
+builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
     .AddRoles<IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>();
     
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
+
+app.UseHttpsRedirection();
+app.UseStaticFiles();
+
+app.UseRouting();
+
+app.UseAuthorization();
+app.UseAuthentication();
+
 
 using (var scope = app.Services.CreateScope())
 {
@@ -46,18 +56,32 @@ using (var scope = app.Services.CreateScope())
                     }
                 }
                 // Find the user by their email or username
-                var user = await userManager.FindByEmailAsync("shubhangi.kelkar12@gmail.com");
+                var user = await userManager.FindByNameAsync("shubh1");
+                //var hasRole = await roleManager.RoleExistsAsync("Admin");
+                //if (await userManager.IsInRoleAsync(user, "Admin")) { throw new NotSupportedException("o Admin Role Exception in Assigning Role The default UI requires a user store with email support.");}
 
                 // Check if the user exists and is not already in the role
-                if (user != null && !await userManager.IsInRoleAsync(user, "Manager"))
+                if (user != null && !await userManager.IsInRoleAsync(user, "Admin"))
                 {
-                    // Add the user to the Admin role
-                    await userManager.AddToRoleAsync(user, "Manager");
+                    
+                    // Add the user to the Admin role                    
+                    var result = await userManager.AddToRoleAsync(user, "Admin");
+                    if (result.Succeeded)
+                    {
+                        // Role assigned successfully
+                    }
+                    else
+                    {
+                        // Role not assigned successfully
+                      // throw new NotSupportedException("Role not Assigned Exception in Assigning Role The default UI requires a user store with email support.");
+                    }
                 }
+
             }
             catch (Exception ex)
             {
                 // Handle exceptions
+                throw new NotSupportedException("Exception in Assigning Role The default UI requires a user store with email support.");
             }
 
 
@@ -79,13 +103,13 @@ else
     app.UseHsts();
 }
 
-app.UseHttpsRedirection();
-app.UseStaticFiles();
+/////app.UseHttpsRedirection();
+/////app.UseStaticFiles();
 
-app.UseRouting();
+/////app.UseRouting();
 
-app.UseAuthorization();
-app.UseAuthentication();
+//////app.UseAuthorization();
+/////app.UseAuthentication();
 
 app.MapControllerRoute(
     name: "default",

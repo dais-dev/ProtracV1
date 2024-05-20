@@ -106,6 +106,6 @@
     <form asp-action="Delete">
         <input type="hidden" asp-for="ProjectId" />
         <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Back to List</a>
+        <a asp-controller="JobStartForm" asp-action="ViewForms" asp-route-id="@Model?.ProjectId"> Back to Forms List</a>
     </form>
 </div>

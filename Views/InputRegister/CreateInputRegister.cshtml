@@ -11,10 +11,22 @@
 <hr style="width:50% height:8px">
 
 <p>
-    <a asp-controller="InputRegister" asp-action="Create" asp-route-id="@Model.Id" style="font-size:1.3vw" > Create Input Register </a>
+    @if (Model.Exists)
+    {
+        <text>Form Exists! </text>
+        <a asp-controller="InputRegister" asp-action="Details" asp-route-id="@Model.Id">View | </a>
+    
+    }
+    else if (!Model.Exists)
+    {
+        <a asp-controller="InputRegister" asp-action="Create" asp-route-id="@Model.Id" style="font-size:1.3vw">Create New Input Register Form</a>
+    
+    <p>
+        <a asp-action="Create" style="font-size:1.3vw"> Create Input Register using Excel </a>
+    </p>
+    }
 </p>
+
 <p> </p>
-<p> </p>
-<p>
-    <a asp-action="Create" style="font-size:1.3vw"> Create Iput Register using Excel </a>
-</p>    using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.View;
+
+

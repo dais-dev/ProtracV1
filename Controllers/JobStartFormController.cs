@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Protrac1.Models;
 using ProtracV1.Data;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ProtracV1.Controllers
 {
+   // [Authorize(Roles = "Admin")]
     public class JobStartFormController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -30,6 +32,8 @@ namespace ProtracV1.Controllers
         {
             return View();
         }
+
+        
         public async Task<IActionResult> ViewProjects()
         {
             return View(await _context.JobStartForm.ToListAsync());

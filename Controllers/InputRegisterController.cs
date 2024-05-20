@@ -10,11 +10,13 @@ using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Protrac1.Models;
 using ProtracV1.Data;
 using SQLitePCL;
+using Microsoft.AspNetCore.Identity;
 
+using ProtracV1.Areas.Identity.Data;
 
 namespace ProtracV1.Controllers
 {
-    [Authorize (Roles = "Admin")]
+   // [Authorize(Roles = "Admin")]
     public class InputRegisterController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -32,23 +34,37 @@ namespace ProtracV1.Controllers
 
 // Added methods for Forms App
         public async Task<IActionResult> CreateInputRegister(int? id)
-        {
+        {          
             if (id == null)
             {
                 return NotFound();
             }
-            var inputRegister = await _context.InputRegister.FindAsync(id);
-            if (inputRegister != null)
-            {
-                return NotFound();
-            }
 
-           var model = new MyViewModel
+            var model = new MyViewModel
             {
                 Id = id.Value,
                 Name = "MyName",
+              
             };
+               
+            var inputRegister = await _context.InputRegister.FindAsync(id);
+            if (inputRegister != null)
+            {
+               await Details(id);
+                model.Exists = true;
+               return View(model);
+      
+            }
+
+            else {
+           // var model = new MyViewModel
+            // {
+            //    Id = id.Value,
+            //    Name = "MyName",
+                model.Exists = false;
+            // };
             return View(model);
+            }
         }
 
 /// end added methods
@@ -73,15 +89,22 @@ namespace ProtracV1.Controllers
         }
 
 
-        // chnged to get (int id)
+        // chnged to get (int id). also changed to async
         // GET: InputRegister/Create
-        public IActionResult Create(int id)
+        public async Task<IActionResult> Create(int id)
         {
            // if (id == null)
             //{
             //    return NotFound();
             // }
             // int _prid = id;
+            var inputRegister = await _context.InputRegister.FindAsync(id);
+            if (inputRegister != null)
+            {
+                return View(inputRegister);
+            }
+
+
             return View();
         }
 
@@ -100,6 +123,7 @@ namespace ProtracV1.Controllers
                 
                //  inputRegister.ProjectManagerName = _context.JobStartForm.First().ProjectManagerName;
                  // inputRegister.SerialNumber = _context.JobStartForm.First().SerialNumber;
+                inputRegister.ProjectId = id; 
                 inputRegister.SerialNumber = id;
                 //
 

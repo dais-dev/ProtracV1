@@ -1,0 +1,67 @@
+@model Protrac1.Models.JobStartForm
+
+
+@{
+    ViewData["Title"] = "Create Project Forms";
+}
+
+<h1>Create Project Forms for @Model.ProjectTitle </h1>
+<p>  </p>
+<p>
+   <span style="font-size:24px;"> PMD1 Job Start Form  </span> <span style="font-size:24px;"> <a asp-controller="InputRegister" asp-action="CreateInputRegister" asp-route-id="@Model.ProjectId">Create | </a> 
+     <a asp-controller="InputRegister" asp-action="CreateInputRegister" asp-route-id="@Model.ProjectId"> View | </a> 
+     <a asp-controller="InputRegister" asp-action="CreateInputRegister" asp-route-id="@Model.ProjectId"> Edit | </a> 
+     <a asp-controller="InputRegister" asp-action="CreateInputRegister" asp-route-id="@Model.ProjectId"> Delete </a>  </h3>
+   </span>
+</p>
+<p>  </p>
+<p>
+   <span style="font-size:24px;"> PMD2 Work BreakDown Structure Form  </span> <span style="font-size:24px;"> <a asp-controller="InputRegister" asp-action="CreateInputRegister" asp-route-id="@Model.ProjectId">Create | </a>
+    <a asp-controller="InputRegister" asp-action="CreateInputRegister" asp-route-id="@Model.ProjectId">View | </a>
+    <a asp-controller="InputRegister" asp-action="CreateInputRegister" asp-route-id="@Model.ProjectId">Edit | </a>
+    <a asp-controller="InputRegister" asp-action="CreateInputRegister" asp-route-id="@Model.ProjectId">Delete | </a>
+</span>
+</p>
+<p>
+   <span style="font-size:24px;"> PMD3 Input Register Form  </span> <span style="font-size:24px;"><a asp-controller="InputRegister" asp-action="CreateInputRegister" asp-route-id="@Model.ProjectId">Create | </a>
+    <a asp-controller="InputRegister" asp-action="Details" asp-route-id="@Model.ProjectId">View | </a>
+    <a asp-controller="InputRegister" asp-action="Edit" asp-route-id="@Model.ProjectId">Edit | </a>
+    <a asp-controller="InputRegister" asp-action="Delete" asp-route-id="@Model.ProjectId">Delete | </a>
+</span>
+</p>
+<p>
+   <span style="font-size:24px;"> PMD4 Correspondance Inward and Outward Form  </span> <span style="font-size:24px;"><a asp-controller="InputRegister" asp-action="CreateInputRegister" asp-route-id="@Model.ProjectId">Create | </a>
+    <a asp-controller="InputRegister" asp-action="CreateInputRegister" asp-route-id="@Model.ProjectId">View | </a>
+    <a asp-controller="InputRegister" asp-action="CreateInputRegister" asp-route-id="@Model.ProjectId">Edit | </a>
+    <a asp-controller="InputRegister" asp-action="CreateInputRegister" asp-route-id="@Model.ProjectId">Delete | </a>
+</span>
+</p>
+<p>
+   <span style="font-size:24px;"> PMD5 Check and Review Form </span> <span style="font-size:24px;"> <a asp-controller="InputRegister" asp-action="CreateInputRegister" asp-route-id="@Model.ProjectId">Create | </a>
+    <a asp-controller="InputRegister" asp-action="CreateInputRegister" asp-route-id="@Model.ProjectId">View | </a>
+    <a asp-controller="InputRegister" asp-action="CreateInputRegister" asp-route-id="@Model.ProjectId">Edit | </a>
+    <a asp-controller="InputRegister" asp-action="CreateInputRegister" asp-route-id="@Model.ProjectId">Delete | </a>
+</span>
+</p>
+<p>
+   <span style="font-size:24px;"> PMD6 Change Control Register Form  </span> <span style="font-size:24px;"> <a asp-controller="InputRegister" asp-action="CreateInputRegister" asp-route-id="@Model.ProjectId">Create | </a>
+    <a asp-controller="InputRegister" asp-action="CreateInputRegister" asp-route-id="@Model.ProjectId">View | </a>
+    <a asp-controller="InputRegister" asp-action="CreateInputRegister" asp-route-id="@Model.ProjectId">Edit | </a>
+    <a asp-controller="InputRegister" asp-action="CreateInputRegister" asp-route-id="@Model.ProjectId">Delete | </a>
+</span>
+</p>
+<p>
+   <span style="font-size:24px;"> PMD7 Monthly Progress Review Form  </span> <span style="font-size:24px;"> <a asp-controller="InputRegister" asp-action="CreateInputRegister" asp-route-id="@Model.ProjectId">Create | </a>
+    <a asp-controller="InputRegister" asp-action="CreateInputRegister" asp-route-id="@Model.ProjectId">View | </a>
+    <a asp-controller="InputRegister" asp-action="CreateInputRegister" asp-route-id="@Model.ProjectId">Edit | </a>
+    <a asp-controller="InputRegister" asp-action="CreateInputRegister" asp-route-id="@Model.ProjectId">Delete | </a>
+</span>
+</p>
+<p>
+  <span style="font-size:24px;"> PMD8 Project Closure Form </span> <span style="font-size:24px;"> <a asp-controller="InputRegister" asp-action="CreateInputRegister" asp-route-id="@Model.ProjectId">Create | </a>
+    <a asp-controller="InputRegister" asp-action="CreateInputRegister" asp-route-id="@Model.ProjectId">View | </a>
+    <a asp-controller="InputRegister" asp-action="CreateInputRegister" asp-route-id="@Model.ProjectId">Edit | </a>
+    <a asp-controller="InputRegister" asp-action="CreateInputRegister" asp-route-id="@Model.ProjectId">Delete | </a>
+</span>
+</p>
+  

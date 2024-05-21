@@ -1,0 +1,99 @@
+@model Protrac1.Models.CheckReviewForm
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>CheckReviewForm</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ProjectId" />
+            <div class="form-group">
+                <label asp-for="SerialNumber" class="control-label"></label>
+                <input asp-for="SerialNumber" class="form-control" />
+                <span asp-validation-for="SerialNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProjectTitle" class="control-label"></label>
+                <input asp-for="ProjectTitle" class="form-control" />
+                <span asp-validation-for="ProjectTitle" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ActivityNumber" class="control-label"></label>
+                <input asp-for="ActivityNumber" class="form-control" />
+                <span asp-validation-for="ActivityNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ActivityName" class="control-label"></label>
+                <input asp-for="ActivityName" class="form-control" />
+                <span asp-validation-for="ActivityName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Objectives" class="control-label"></label>
+                <input asp-for="Objectives" class="form-control" />
+                <span asp-validation-for="Objectives" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ReferenceStandards" class="control-label"></label>
+                <input asp-for="ReferenceStandards" class="form-control" />
+                <span asp-validation-for="ReferenceStandards" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FileName" class="control-label"></label>
+                <input asp-for="FileName" class="form-control" />
+                <span asp-validation-for="FileName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SpecificQualityIssues" class="control-label"></label>
+                <input asp-for="SpecificQualityIssues" class="form-control" />
+                <span asp-validation-for="SpecificQualityIssues" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Completion" /> @Html.DisplayNameFor(model => model.Completion)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="CheckedBy" class="control-label"></label>
+                <input asp-for="CheckedBy" class="form-control" />
+                <span asp-validation-for="CheckedBy" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CheckedByDate" class="control-label"></label>
+                <input asp-for="CheckedByDate" class="form-control" />
+                <span asp-validation-for="CheckedByDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ApprovedBy" class="control-label"></label>
+                <input asp-for="ApprovedBy" class="form-control" />
+                <span asp-validation-for="ApprovedBy" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ApprovedByDate" class="control-label"></label>
+                <input asp-for="ApprovedByDate" class="form-control" />
+                <span asp-validation-for="ApprovedByDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ActionTaken" class="control-label"></label>
+                <input asp-for="ActionTaken" class="form-control" />
+                <span asp-validation-for="ActionTaken" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-controller="JobStartForm" asp-action="ViewForms" asp-route-id="@Model?.ProjectId"> Back to Forms List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

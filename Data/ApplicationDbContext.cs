@@ -15,6 +15,8 @@ public class ApplicationDbContext : IdentityDbContext
 
 public DbSet<Protrac1.Models.InputRegister> InputRegister { get; set; } = default!;
 
+public DbSet<Protrac1.Models.CheckReviewForm> CheckReviewForm { get; set; } = default!;
+
 // public DbSet<Protrac1.Models.MyViewModel> MyViewModel { get; set; } = default!;
 
 }

@@ -320,3 +320,48 @@ public async Task<IActionResult> Create([Bind("ProjectId,SerialNumber,ProjectTit
    **Add**      inputRegister.SerialNumber = id;
 
 
+
+
+
+
+
+
+
+
+
+*********************
+auth Roles
+
+dotnet add package Microsoft.AspnetCore.Authorization
+
+
+
+--------
+override login pages
+
+dotnet aspnet-codegenerator identity -dc ApplicationDbContext --databaseprovider sqlite --files "Account.Register;Account.Login"
+
+
+
+
+
+
+
+
+
+********* To RESOLVE AUTH issue
+
+
+
+
+***********
+*** CheckReviewForm
+
+** 45** add 
+CheckReviewForm.cs model
+
+
+**46***run scaffold for controller code
+dotnet aspnet-codegenerator controller -name CheckReviewFormController -m CheckReviewForm  --relativeFolderPath Controllers --useDefaultLayout --referenceScriptLibraries --databaseProvider sqlite -dc ApplicationDbContext
+
+** check scaffold successful : creates controller and view files

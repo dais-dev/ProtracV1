@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ProtracV1")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+48d8873aba4359ecfd80a42c7302970dae8040b4")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5feec8f12b44e25118294b4f294f0db8d67942f3")]
 [assembly: System.Reflection.AssemblyProductAttribute("ProtracV1")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ProtracV1")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

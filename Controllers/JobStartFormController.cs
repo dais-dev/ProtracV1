@@ -32,7 +32,6 @@ namespace ProtracV1.Controllers
         {
             return View();
         }
-
         
         public async Task<IActionResult> ViewProjects()
         {
@@ -55,6 +54,7 @@ namespace ProtracV1.Controllers
         }
 
         /// end Added methods
+
 
         // GET: JobStartForm/Details/5
         public async Task<IActionResult> Details(int? id)

@@ -40,8 +40,6 @@ namespace ProtracV1.Controllers
                 return NotFound();
             }
 
-            // model is For Passing the Id (ProjectId) to the View
-
             var model = new MyViewModel
             {
                 Id = id.Value,
@@ -52,15 +50,20 @@ namespace ProtracV1.Controllers
             var inputRegister = await _context.InputRegister.FindAsync(id);
             if (inputRegister != null)
             {
-                await Details(id);
+               await Details(id);
                 model.Exists = true;
-                return View(model);
+               return View(model);
       
             }
 
             else {
+           // var model = new MyViewModel
+            // {
+            //    Id = id.Value,
+            //    Name = "MyName",
                 model.Exists = false;
-                return View(model);
+            // };
+            return View(model);
             }
         }
 
@@ -86,7 +89,7 @@ namespace ProtracV1.Controllers
         }
 
 
-        // chnged Create to get (int id). also changed the method to async
+        // chnged to get (int id). also changed to async
         // GET: InputRegister/Create
         public async Task<IActionResult> Create(int id)
         {
@@ -94,12 +97,13 @@ namespace ProtracV1.Controllers
             //{
             //    return NotFound();
             // }
-
+            // int _prid = id;
             var inputRegister = await _context.InputRegister.FindAsync(id);
             if (inputRegister != null)
             {
                 return View(inputRegister);
             }
+
 
             return View();
         }
@@ -115,13 +119,13 @@ namespace ProtracV1.Controllers
             {
                 // Added for takig common fields from JobStartForm
 
-                  //  This was only for test before id was passed to View  
-                  //  var JobStart = _context.JobStartForm.FirstOrDefault();
-                  // inputRegister.SerialNumber = _context.JobStartForm.First().SerialNumber;
-
+              //  var JobStart = _context.JobStartForm.FirstOrDefault();
+                
+               //  inputRegister.ProjectManagerName = _context.JobStartForm.First().ProjectManagerName;
+                 // inputRegister.SerialNumber = _context.JobStartForm.First().SerialNumber;
                 inputRegister.ProjectId = id; 
                 inputRegister.SerialNumber = id;
-                // SerialNumber = id  just to display the id, to be changed later on
+                //
 
                 _context.Add(inputRegister);
                 await _context.SaveChangesAsync();

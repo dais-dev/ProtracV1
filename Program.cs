@@ -6,6 +6,10 @@ using Microsoft.AspNetCore.Authorization;
 
 using ProtracV1.Areas.Identity.Data;
 
+
+System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
+var encoding = System.Text.Encoding.GetEncoding(1252);
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.

@@ -365,3 +365,50 @@ CheckReviewForm.cs model
 dotnet aspnet-codegenerator controller -name CheckReviewFormController -m CheckReviewForm  --relativeFolderPath Controllers --useDefaultLayout --referenceScriptLibraries --databaseProvider sqlite -dc ApplicationDbContext
 
 ** check scaffold successful : creates controller and view files
+
+
+*47* 
+dotnet ef migrations add InitialCreate --context ApplicationDbContext
+**48** 
+dotnet ef database update --context ApplicationDbContext
+
+-----
+
+* check if auto added 
+public DbSet<InputRegister> InputRegister { get; set; } = default!
+
+
+*** 48.*** ViewForms.cshtml View
+
+@model Protrac1.Models.JobStartForm
+
+<p>
+    <a asp-controller="CheckReviewForm" asp-action="Create" asp-route-id="@Model.ProjectId">Create New</a>
+</p>
+
+###Create
+
+
+
+
+
+
+
+
+
+
+# ********* READ xls file
+
+** 51**
+dotnet add package ExcelDataReader
+
+
+
+
+
+
+
+add in Program.cs
+
+System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
+var encoding = System.Text.Encoding.GetEncoding(1252);

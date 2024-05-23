@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "GrQ6tGMFTjieh5xrGvs4bH74CZwuvndAO8Qth1XLWy0Xc8tfwJ7L/JQfbUBWN/AkQq7SrT5tYEwhx35qVJa41g==",
+  "dgSpecHash": "eL72op2tAxE6wHknrIuxXDbxZVxxCyB7v+f4jFfEma0Tq2H6yUsxNo9PUmDJEMYG6V4WwBqSmbRBlffGw7dXMQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\Shubhangi\\Protrac\\Protract Version 1\\ProtracV1\\ProtracV1.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Shubhangi\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\Shubhangi\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
+    "C:\\Users\\Shubhangi\\.nuget\\packages\\exceldatareader\\3.6.0\\exceldatareader.3.6.0.nupkg.sha512",
     "C:\\Users\\Shubhangi\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",
     "C:\\Users\\Shubhangi\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\Shubhangi\\.nuget\\packages\\humanizer.core.af\\2.14.1\\humanizer.core.af.2.14.1.nupkg.sha512",

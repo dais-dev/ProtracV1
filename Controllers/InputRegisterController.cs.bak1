@@ -11,7 +11,6 @@ using Protrac1.Models;
 using ProtracV1.Data;
 using SQLitePCL;
 using Microsoft.AspNetCore.Identity;
-using ExcelDataReader;
 
 using ProtracV1.Areas.Identity.Data;
 
@@ -64,50 +63,6 @@ namespace ProtracV1.Controllers
                 return View(model);
             }
         }
-////
-////
-///
-    [HttpPost]
-    public async Task<IActionResult> Import(IFormFile file)
-    {
-        if (file == null || file.Length <= 0)
-        {
-            return BadRequest("Upload a file.");
-        }
-
-        if (!Path.GetExtension(file.FileName).Equals(".xls", StringComparison.OrdinalIgnoreCase))
-        {
-            return BadRequest("Not support file extension.");
-        }
-
-        var list = new List<InputRegister>();
-
-        using (var stream = new MemoryStream())
-        {
-            await file.CopyToAsync(stream);
-            using (var reader = ExcelReaderFactory.CreateReader(stream))
-            {
-                while (reader.Read()) //Each row of the file
-                {
-                    list.Add(new InputRegister { 
-                        // Assuming your model has two properties for example
-                        ProjectId = Convert.ToInt32(reader.GetValue(0)),
-                        SerialNumber =  Convert.ToInt32(reader.GetValue(1)),
-                        DataReceived = reader.GetValue(2).ToString(),
-                        ReceivedFrom = reader.GetValue(3).ToString(),
-                    });
-                }
-            }
-        }
-
-        await _context.AddRangeAsync(list);
-        await _context.SaveChangesAsync();
-
-        return Ok("Data imported successfully");
-    }
-
-
-
 
 /// end added methods
 

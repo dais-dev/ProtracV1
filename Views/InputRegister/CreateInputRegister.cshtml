@@ -5,7 +5,7 @@
 }
 
 
-<h2> Create Input Register </h2>
+<h1 style="color: teal ;"> Create Input Register Form </h1>
 <p> </p>
 <p> </p>
 <hr style="width:50% height:8px">
@@ -22,7 +22,12 @@
         <a asp-controller="InputRegister" asp-action="Create" asp-route-id="@Model.Id" style="font-size:1.3vw">Create New Input Register Form</a>
     
     <p>
-        <a asp-action="Create" style="font-size:1.3vw"> Create Input Register using Excel </a>
+        <form asp-action="Import" asp-controller="InputRegister"  method="post" enctype="multipart/form-data">
+          <input type="file" name="file" />
+         <button type="submit">Upload</button>
+        </form>
+
+        <a asp-controller="InputRegister" asp-action="Import" style="font-size:1.3vw"> Create Input Register using Excel </a>
     </p>
     }
 </p>

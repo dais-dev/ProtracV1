@@ -8,6 +8,8 @@ using Microsoft.EntityFrameworkCore;
 using Protrac1.Models;
 using ProtracV1.Data;
 using Microsoft.AspNetCore.Authorization;
+using MimeKit;
+using MailKit;
 
 namespace ProtracV1.Controllers
 {
@@ -34,7 +36,7 @@ namespace ProtracV1.Controllers
         }
         
         public async Task<IActionResult> ViewProjects()
-        {
+        {       
             return View(await _context.JobStartForm.ToListAsync());
         }
         public async Task<IActionResult> ViewForms(int? id)
@@ -91,6 +93,7 @@ namespace ProtracV1.Controllers
             {
                 _context.Add(jobStartForm);
                 await _context.SaveChangesAsync();
+                RedirectToAction("SendEmail","Home");
                 return RedirectToAction(nameof(Index));
             }
             return View(jobStartForm);

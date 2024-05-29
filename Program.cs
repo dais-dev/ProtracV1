@@ -5,6 +5,12 @@ using ProtracV1.Models;
 using Microsoft.AspNetCore.Authorization;
 
 using ProtracV1.Areas.Identity.Data;
+using MimeKit;
+using MailKit;
+using Protrac1.Models;
+using ProtracV1.Services;
+
+using Microsoft.AspNetCore.Identity.UI.Services;
 
 
 System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
@@ -19,6 +25,13 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 
 
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
+
+//// added for sending emails
+var emailConfig = builder.Configuration.GetSection("EmailSettings").Get<EmailSettings>();
+    builder.Services.AddSingleton(emailConfig);
+//    builder.Services.AddScoped<IEmailSender, Emailsender>();
+
+    builder.Services.AddTransient<IEmailService, EmailService>();
 
 ////// changed to false for noemail confirmation
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)

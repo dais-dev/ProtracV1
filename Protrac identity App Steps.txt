@@ -412,3 +412,68 @@ add in Program.cs
 
 System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
 var encoding = System.Text.Encoding.GetEncoding(1252);
+
+
+
+
+
+***** GIT steps 
+
+
+*3* check if existing ssh-agent and kill
+ps -a
+kill ssh-agent
+
+---
+*4* start new ssh-agent and add key and check
+eval $(ssh-agent -s)
+ssh-add ~/.ssh/id_ed25519
+ssh-add -l -E sha256
+
+***
+*5*  set configuration if required
+ git config --global user.password dais.disha1
+ git remote set-url origin https://github.com/dais-dev/ProtracV1.git
+ git config --global user.email dais.disha@gmail.com
+ git config --global user.name dais-dev
+
+**** only first time for dais.disha account
+Windows -> Control Panel -> User Accounts -> Credential Manager  -> change git credentials
+
+*6*
+git config --list
+
+
+*7* cd project dir in GIT bash
+cd Protrac/Protrac Version 1/ProtracV1
+git init
+git add .
+git commit -m "initial commit"
+
+git remote add origin git@github.com:dais-dev/ProtracV1.git 
+(**** not  https://github.com/dais-dev/DAISv1.git )
+
+
+*8*
+git remote show origin
+
+git remote -v
+
+* if existing some file
+git pull origin main
+
+*9*
+ git branch -M main
+git push -u origin main
+
+
+
+
+
+
+
+
+
+
+
+git remote set-url origin https://github.com/dais-dev/

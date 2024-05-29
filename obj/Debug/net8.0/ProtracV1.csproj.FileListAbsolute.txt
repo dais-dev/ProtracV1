@@ -286,3 +286,9 @@ C:\Users\Shubhangi\Protrac\Protract Version 1\ProtracV1\bin\Debug\net8.0\Microso
 C:\Users\Shubhangi\Protrac\Protract Version 1\ProtracV1\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
 C:\Users\Shubhangi\Protrac\Protract Version 1\ProtracV1\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
 C:\Users\Shubhangi\Protrac\Protract Version 1\ProtracV1\bin\Debug\net8.0\ExcelDataReader.dll
+C:\Users\Shubhangi\Protrac\Protract Version 1\ProtracV1\bin\Debug\net8.0\BouncyCastle.Cryptography.dll
+C:\Users\Shubhangi\Protrac\Protract Version 1\ProtracV1\bin\Debug\net8.0\MailKit.dll
+C:\Users\Shubhangi\Protrac\Protract Version 1\ProtracV1\bin\Debug\net8.0\MimeKit.dll
+C:\Users\Shubhangi\Protrac\Protract Version 1\ProtracV1\bin\Debug\net8.0\MailKit.NET.dll
+C:\Users\Shubhangi\Protrac\Protract Version 1\ProtracV1\bin\Debug\net8.0\System.Management.dll
+C:\Users\Shubhangi\Protrac\Protract Version 1\ProtracV1\bin\Debug\net8.0\runtimes\win\lib\netcoreapp2.0\System.Management.dll

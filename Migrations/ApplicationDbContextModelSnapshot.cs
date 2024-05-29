@@ -266,6 +266,36 @@ namespace ProtracV1.Migrations
                     b.ToTable("CheckReviewForm");
                 });
 
+            modelBuilder.Entity("Protrac1.Models.EmailSettings", b =>
+                {
+                    b.Property<int>("EmailId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("MailPort")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("MailServer")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Sender")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("SenderName")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("EmailId");
+
+                    b.ToTable("EmailSettings");
+                });
+
             modelBuilder.Entity("Protrac1.Models.InputRegister", b =>
                 {
                     b.Property<int>("ProjectId")

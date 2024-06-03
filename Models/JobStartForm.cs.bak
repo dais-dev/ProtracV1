@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Protrac1.Models;
+namespace ProtracV1.Models;
 
 public class JobStartForm
 {

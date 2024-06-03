@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
-using Protrac1.Models;
+using ProtracV1.Models;
 using ProtracV1.Data;
 using SQLitePCL;
 using Microsoft.AspNetCore.Identity;

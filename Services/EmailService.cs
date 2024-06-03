@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using Protrac1.Models;
+using ProtracV1.Models;
 using ProtracV1.Data;
 using Microsoft.AspNetCore.Authorization;
 using MimeKit;

@@ -122,6 +122,7 @@ namespace ProtracV1.Areas.Identity.Pages.Account
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User logged in.");
+                    _logger.LogInformation("Hello Logged in {UserName} {ReturnUrl}", Input.UserName, returnUrl);
                     return LocalRedirect(returnUrl);
                 }
                 if (result.RequiresTwoFactor)

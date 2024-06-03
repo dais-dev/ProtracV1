@@ -7,7 +7,6 @@ using Microsoft.AspNetCore.Authorization;
 using ProtracV1.Areas.Identity.Data;
 using MimeKit;
 using MailKit;
-using Protrac1.Models;
 using ProtracV1.Services;
 
 using Microsoft.AspNetCore.Identity.UI.Services;
@@ -54,6 +53,7 @@ using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
 
+    SeedData.Initialize(services);
     try
             {
                 var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
@@ -73,9 +73,9 @@ using (var scope = app.Services.CreateScope())
                     }
                 }
                 // Find the user by their email or username
-                var user = await userManager.FindByNameAsync("shubh1");
+                var user = await userManager.FindByNameAsync("shubh5");
                 //var hasRole = await roleManager.RoleExistsAsync("Admin");
-                //if (await userManager.IsInRoleAsync(user, "Admin")) { throw new NotSupportedException("o Admin Role Exception in Assigning Role The default UI requires a user store with email support.");}
+                if(await userManager.IsInRoleAsync(user, "Admin")) { throw new NotSupportedException("o Admin Role Exception in Assigning Role The default UI requires a user store with email support.");}
 
                 // Check if the user exists and is not already in the role
                 if (user != null && !await userManager.IsInRoleAsync(user, "Admin"))
@@ -90,7 +90,8 @@ using (var scope = app.Services.CreateScope())
                     else
                     {
                         // Role not assigned successfully
-                      // throw new NotSupportedException("Role not Assigned Exception in Assigning Role The default UI requires a user store with email support.");
+
+           //           throw new NotSupportedException("Role sss not Assigned Exception in Assigning Role The default UI requires a user store with email support.");
                     }
                 }
 
@@ -98,13 +99,13 @@ using (var scope = app.Services.CreateScope())
             catch (Exception ex)
             {
                 // Handle exceptions
-                throw new NotSupportedException("Exception in Assigning Role The default UI requires a user store with email support.");
+     //           throw new NotSupportedException("Exception kkk in Assigning Role The default UI requires a user store with email support.");
             }
 
 
 
 
-    SeedData.Initialize(services);
+
 }
 
 

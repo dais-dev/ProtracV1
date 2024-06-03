@@ -1,11 +1,11 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Protrac1.Models;
+namespace ProtracV1.Models;
 
 public class EmailSettings
 {
-    [Required][Key]
+   [Required][Key]
     public int EmailId { get; set; }
     public string MailServer { get; set; }
     public int MailPort { get; set; }
